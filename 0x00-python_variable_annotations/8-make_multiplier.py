@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" This module contains the function for task 7 """
+""" This module contains the function for task 8 """
 from typing import Callable
 
 
