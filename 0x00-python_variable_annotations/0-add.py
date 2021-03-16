@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-""" Python typing annotations """
+"""A module for task 0"""
 
 
 def add(a: float, b: float) -> float:
-    """ Add two numbers, both floats """
+    """add: adds two numbers"""
     return a + b
