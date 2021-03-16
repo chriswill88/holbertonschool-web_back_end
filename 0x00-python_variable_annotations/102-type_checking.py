@@ -4,6 +4,7 @@ from typing import List, Any, Sequence, Tuple, Mapping, TypeVar
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """zoom_array: views certain zoomed part of an array"""
     zoomed_in: List = [
         item for item in lst
         for i in range(factor)
