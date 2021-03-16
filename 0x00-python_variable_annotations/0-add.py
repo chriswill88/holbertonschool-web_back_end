@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""A module for task 0."""
+"""A type-annotated function add
+that takes a float a and a float b
+as arguments and returns their sum
+as a float."""
 
 
 
