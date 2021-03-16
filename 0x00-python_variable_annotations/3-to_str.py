@@ -3,6 +3,6 @@
 
 
 def to_str(n: float) -> str:
-    """to_str: returns the string 
+    """to_str: returns the string
     representation of the float"""
     return str(n)
