@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-from math import floor as f
-
-
 """A module for task 2"""
+
+
 def floor(n: float) -> int:
     """floor: calculates the floor for a number"""
-    return f(n)
+    if n >= 0:
+        return (n - (n % 1))
+    else:
+        return (n - (1 - (n % 1)))
