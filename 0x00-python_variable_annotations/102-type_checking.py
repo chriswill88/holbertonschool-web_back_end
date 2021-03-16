@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ This module contains the function for task 102 """
-from typing import List, Any, Sequence, Tuple, Mapping, TypeVar
+from typing import List, Tuple
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
