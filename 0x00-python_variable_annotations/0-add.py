@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A module for task 0"""
+"""A module for task 0."""
 
 
 
