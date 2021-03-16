@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
-"""Write a type-annotated function add
-that takes a float a and a float b as arguments
-and returns their sum as a float.
-"""
+""" Python typing annotations """
 
 
 def add(a: float, b: float) -> float:
-    """Add two floats using annotation."""
+    """ Add two numbers, both floats """
     return a + b
