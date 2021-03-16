@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A module for task 3"""
+""" This module contains the function for task 3 """
 
 
 def to_str(n: float) -> str:
