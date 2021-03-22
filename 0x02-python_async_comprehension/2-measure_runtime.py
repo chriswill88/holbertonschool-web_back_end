@@ -9,5 +9,6 @@ import asyncio
 async def measure_runtime():
     """ measure execution time"""
     start_time = time.time()
-
+    time = [async_comprehension() for i in range(4)]
+    asyncio.gather(await time)
     return (time.time() - start_time)
