@@ -4,7 +4,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ FIFOCache: no limit cache """
+    """ FIFOCache: limited cache first in first out """
     def __init__(self):
         super().__init__()
 
