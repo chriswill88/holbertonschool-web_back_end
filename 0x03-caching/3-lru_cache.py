@@ -24,7 +24,7 @@ class LRUCache(BaseCaching):
             del self.cache_data[keys[self.leastInd]]
 
             self.leastInd += 1
-            if self.leastInd > BaseCaching.MAX_ITEMS - 2:
+            if self.leastInd > BaseCaching.MAX_ITEMS - 1:
                 
                 self.leastInd = 0
 
