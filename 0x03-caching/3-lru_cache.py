@@ -17,15 +17,13 @@ class LRUCache(BaseCaching):
         keys = list(self.cache_data.keys())
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            # print("-------------------\n", key, item, "\n-------------------\n")
             print("DISCARD:", keys[self.leastInd])
-            
+
             self.cache_data[key] = item
             del self.cache_data[keys[self.leastInd]]
 
             self.leastInd += 1
-            if self.leastInd > BaseCaching.MAX_ITEMS - 1:
-                
+            if self.leastInd > BaseCaching.MAX_ITEMS - 2:
                 self.leastInd = 0
 
     def get(self, key):
