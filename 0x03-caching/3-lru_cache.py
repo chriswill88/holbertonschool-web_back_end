@@ -7,7 +7,6 @@ class LRUCache(BaseCaching):
     """ LRUCache: limited cache first in first out """
     def __init__(self):
         super().__init__()
-        self.leastInd = 0
 
     def put(self, key, item):
         """ add module to cache """
@@ -17,10 +16,10 @@ class LRUCache(BaseCaching):
         keys = list(self.cache_data.keys())
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            print("DISCARD:", keys[self.leastInd])
+            print("DISCARD:", keys[0])
 
             self.cache_data[key] = item
-            del self.cache_data[keys[self.leastInd]]
+            del self.cache_data[keys[0]]
 
     def get(self, key):
         """ return module from cache """
