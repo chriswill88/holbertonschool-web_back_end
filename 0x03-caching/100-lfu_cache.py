@@ -3,8 +3,8 @@
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class MRUCache(BaseCaching):
-    """ MRUCache: limited cache first in first out """
+class LFUCache(BaseCaching):
+    """ LFUCache: limited cache first in first out """
     def __init__(self):
         super().__init__()
 
