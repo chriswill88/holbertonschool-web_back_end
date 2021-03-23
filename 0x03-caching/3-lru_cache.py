@@ -22,10 +22,6 @@ class LRUCache(BaseCaching):
             self.cache_data[key] = item
             del self.cache_data[keys[self.leastInd]]
 
-            self.leastInd += 1
-            if self.leastInd > BaseCaching.MAX_ITEMS - 2:
-                self.leastInd = 0
-
     def get(self, key):
         """ return module from cache """
         cach = self.cache_data
