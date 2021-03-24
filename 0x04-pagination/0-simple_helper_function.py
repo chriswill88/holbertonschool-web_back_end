@@ -3,6 +3,6 @@
 from typing import Tuple
 
 
-def index_range(page: int, page_size:int) -> Tuple:
+def index_range(page: int, page_size: int) -> Tuple:
     """this returns the start and ending indexs"""
     return (page - 1, page + page_size - 1)
