@@ -51,4 +51,7 @@ class Server:
         while self.get_page(tp, page_size):
             tp += 1
 
-        return {'page_size': ps , 'page': page, 'data': ret, 'next_page': np, 'prev_page': pp, 'total_pages': tp - 1}
+        return {
+            'page_size': ps, 'page': page,
+            'data': ret, 'next_page': np,
+            'prev_page': pp, 'total_pages': tp - 1}
