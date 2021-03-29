@@ -22,10 +22,6 @@ class RedactingFormatter(logging.Formatter):
         return filter_datum(
             self.fields, self.REDACTION, super().format(record), self.SEPARATOR)
 
-    def get_logger() -> logging.Logger:
-        """ """
-        logging.basicConfig()
-
 
 def filter_datum(
     fields: List[str], redaction: str,
