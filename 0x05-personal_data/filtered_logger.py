@@ -12,7 +12,7 @@ PII_FIELDS = ("name", "email", "phone", "ssn", "password")
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """db maker"""
-    mysql.connector.connect(
+    return mysql.connector.connect(
         host=os.getenv('PERSONAL_DATA_DB_HOST'),
         database=os.getenv('PERSONAL_DATA_DB_NAME'),
         user=os.getenv('PERSONAL_DATA_DB_USERNAME'),
