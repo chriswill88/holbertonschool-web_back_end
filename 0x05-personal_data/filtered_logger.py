@@ -59,3 +59,13 @@ def filter_datum(
             r'(?<={}=)(.*?(?={}))'.format(i, separator),
             redaction, message)
     return message
+
+
+def main():
+    db = get_db()
+    message = db.cursor()
+    message.execute("SELECT COUNT(*) FROM users;")
+    log_record = logging.LogRecord("my_logger", logging.INFO, None, None, message, None, None)
+
+    formatter = RedactingFormatter(PII_FIELDS)
+    print(formatter.format(log_record))
