@@ -5,7 +5,7 @@ import re
 import logging
 
 
-PII_FIELDS = ("name", "email", "phone", "ssn", "ip")
+PII_FIELDS = ("name", "email", "phone", "ssn", "user_agent")
 
 
 def get_logger() -> logging.Logger:
