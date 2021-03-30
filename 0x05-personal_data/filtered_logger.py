@@ -62,6 +62,7 @@ def filter_datum(
 
 
 def main():
+    """main function"""
     db = get_db()
     message = db.cursor()
     message.execute("SELECT COUNT(*) FROM users;")
