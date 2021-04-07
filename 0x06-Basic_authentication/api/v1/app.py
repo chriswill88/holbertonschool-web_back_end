@@ -49,10 +49,8 @@ def bef():
                 '/api/v1/unauthorized/',
                 '/api/v1/forbidden/']):
             pass
-
         if auth.authorization_header(request) is None:
             abort(401)
-
         if auth.current_user() is None:
             abort(403)
 
