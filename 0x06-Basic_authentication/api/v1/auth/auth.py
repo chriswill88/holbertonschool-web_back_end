@@ -24,7 +24,7 @@ class Auth():
         print("REQUEST", request)
         if request is None:
             return None
-        if 'Authorization' not in list(request.keys()):
+        if 'Authorization' not in request.keys():
             return None
         else:
             return request['Authorization']
