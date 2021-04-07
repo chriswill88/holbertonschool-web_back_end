@@ -44,7 +44,10 @@ def bef():
     """Function runs before"""
     if auth:
         if auth.require_auth(
-            request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']):
+                request.path, [
+                '/api/v1/status/',
+                '/api/v1/unauthorized/',
+                '/api/v1/forbidden/']):
             pass
 
         if auth.authorization_header(request) is None:
