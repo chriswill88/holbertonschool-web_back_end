@@ -1,14 +1,14 @@
-#!/usr/bin/env python3
-""" Main 2
+#!/usr/bin/python3
+""" Check response
 """
-from api.v1.auth.basic_auth import BasicAuth
 
-a = BasicAuth()
+if __name__ == "__main__":
+    from api.v1.auth.auth import Auth
 
-print(a.extract_base64_authorization_header(None))
-print(a.extract_base64_authorization_header(89))
-print(a.extract_base64_authorization_header("Holberton School"))
-print(a.extract_base64_authorization_header("Basic Holberton"))
-print(a.extract_base64_authorization_header("Basic SG9sYmVydG9u"))
-print(a.extract_base64_authorization_header("Basic SG9sYmVydG9uIFNjaG9vbA=="))
-print(a.extract_base64_authorization_header("Basic1234"))
+    a = Auth()
+    res = a.authorization_header()
+    if res is not None:
+        print("authorization_header must return None")
+        exit(1)
+    print("OK", end="")
+    
