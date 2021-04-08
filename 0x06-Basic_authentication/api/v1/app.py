@@ -44,15 +44,12 @@ def bef():
     """Function runs before"""
     if auth:
         if auth.require_auth(
-                request.path, [
-                '/api/v1/status/',
-                '/api/v1/unauthorized/',
-                '/api/v1/forbidden/']):
-            pass
-        if auth.authorization_header(request) is None:
-            abort(401)
-        if auth.current_user() is None:
-            abort(403)
+            request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']) is True:
+            if auth.authorization_header(request) is None:
+                abort(401)
+            if auth.current_user() is None:
+                abort(403)
+
 
 
 if __name__ == "__main__":

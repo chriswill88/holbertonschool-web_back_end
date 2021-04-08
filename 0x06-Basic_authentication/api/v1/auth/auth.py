@@ -24,10 +24,10 @@ class Auth():
         print("REQUEST", request)
         if request is None:
             return None
-        if 'Authorization' not in request.keys():
+        if request.headers.get('Authorization') is None:
             return None
         else:
-            return request['Authorization']
+            return request.headers['Authorization']
         return None
 
     def current_user(self, request=None) -> TypeVar('User'):
