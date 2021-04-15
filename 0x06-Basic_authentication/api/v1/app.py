@@ -51,7 +51,7 @@ def bef():
                 '/api/v1/forbidden/']) is True:
             if auth.authorization_header(request) is None:
                 abort(401)
-            if auth.current_user() is None:
+            if auth.current_user(request) is None:
                 abort(403)
 
 
