@@ -44,6 +44,7 @@ def forbidden(error) -> str:
 @app.before_request
 def bef():
     """Function runs before"""
+    request.current_user = auth.current_user(request)
     if auth:
         if auth.require_auth(
             request.path, [
