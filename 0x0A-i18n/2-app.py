@@ -26,4 +26,4 @@ def get_locale():
 @app.route('/')
 def hello_world():
     """renders a template"""
-    return render_template('1-index.html')
+    return render_template('2-index.html')
