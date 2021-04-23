@@ -10,9 +10,11 @@ class Config():
     LANGUAGES = ["en", "fr"]
     TIMEZONE = "utc"
 
-babel = Babel(app, Config.LANGUAGES[0], Config.TIMEZONE)
 
 @app.route('/')
 def hello_world():
     """renders a template"""
     return render_template('1-index.html')
+
+
+babel = Babel(app, Config.LANGUAGES[0], Config.TIMEZONE)
