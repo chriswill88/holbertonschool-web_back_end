@@ -1,0 +1,2 @@
+// task 8
+db.school.deleteMany({ name : 'Holberton school' })
