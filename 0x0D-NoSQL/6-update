@@ -1,0 +1,2 @@
+// task 6
+db.school.update({name : 'Holberton school'}, {name : 'Holberton school', address : '972 Mission street'})
