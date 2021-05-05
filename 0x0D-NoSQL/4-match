@@ -1,2 +1,2 @@
-// task 2
-db.school.insert( { name : 'Holberton school' } )
+// task 4
+db.school.find( { name : 'Holberton school' } )
