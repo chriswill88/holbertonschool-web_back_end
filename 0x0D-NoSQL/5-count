@@ -1,2 +1,2 @@
 // task 5
-db.collection.count()
+db.school.count()
