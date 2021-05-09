@@ -4,11 +4,13 @@ function getCurrentYear() {
 }
 
 export default function getBudgetForCurrentYear(income, gdp, capita) {
-  const budget = {};
+  const date = getCurrentYear().toString();
 
-  budget[`income-${getCurrentYear()}`] = income;
-  budget[`gdp-${getCurrentYear()}`] = gdp;
-  budget[`capita-${getCurrentYear()}`] = capita;
+  const budget = {
+    [`income-${date}`]: income,
+    [`gdp-${date}`]: gdp,
+    [`capita-${date}`]: capita,
+  };
 
   return budget;
 }
