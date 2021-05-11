@@ -1,7 +1,15 @@
-import getFullResponseFromAPI from './1-promise';
-
 export default function handleResponseFromAPI(promise) {
-  getFullResponseFromAPI(promise);
+  function res() {
+    return {
+      status: 200,
+      body: 'success',
+    };
+  }
 
-  promise.catch('Got a response from the API');
+  function rej() {
+    return Error();
+  }
+
+  promise.then(res, rej);
+  promise.finally(() => console.log('Got a response from the API'));
 }
