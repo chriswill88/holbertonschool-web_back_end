@@ -7,7 +7,7 @@ export default function handleResponseFromAPI(promise) {
   }
 
   function rej() {
-    return Error();
+    return Error('');
   }
 
   promise.then(res, rej);
