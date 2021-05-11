@@ -10,7 +10,7 @@ export default function handleResponseFromAPI(promise) {
     return Error('');
   }
 
-  promise.then(res, rej);
-  promise.catch(() => console.log('Got a response from the API'));
+  promise.then(res);
+  promise.catch(rej);
   promise.finally(() => console.log('Got a response from the API'));
 }
