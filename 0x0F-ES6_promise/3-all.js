@@ -11,6 +11,8 @@ export default function handleProfileSignup() {
       fn = data.firstName;
       ln = data.lastName;
       console.log(body, fn, ln);
-    }, () => console.log('Signup system offline'));
-  }, () => console.log('Signup system offline'));
+    })
+      .catch(() => console.log('Signup system offline'));
+  })
+    .catch(() => console.log('Signup system offline'));
 }
