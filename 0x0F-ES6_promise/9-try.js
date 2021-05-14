@@ -1,19 +1,11 @@
 export default function guardrail(mathFunction) {
-  var queue = [];
+  const queue = [];
 
-  const promise = Promise.resolve(mathFunction());
-  console.log(promise);
-
-  promise.then((data) => {
-      queue.push(data);
-    })
-    .catch((err) => {
-      queue.push(err);
-    })
-    .finally(() => {
-      queue.push('Guardrail was processed');
-      return queue;
-    });
-
-  return promise.resolve();
+  try {
+    queue.push(mathFunction());
+  } catch (error) {
+    queue.push(`Error: ${error.message}`);
+  }
+  queue.push('Guardrail was processed');
+  return queue;
 }
