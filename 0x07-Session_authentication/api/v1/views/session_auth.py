@@ -32,7 +32,8 @@ def get_email_and_pass():
     return out, 200
 
 
-@app_views.route('/api/v1/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+@app_views.route(
+    '/api/v1/auth_session/logout', methods=['DELETE'], strict_slashes=False)
 def delete():
     """deletes the user session / logout"""
     from api.v1.app import auth
