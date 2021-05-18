@@ -30,3 +30,12 @@ def get_email_and_pass():
     out = jsonify(user.to_json())
     out.set_cookie(cookie, session_id)
     return out, 200
+
+
+@app_views.route('/api/v1/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+def delete():
+    """deletes the user session / logout"""
+    from api.v1.app import auth
+    if auth.destroy_session(request) is False:
+        abort(404)
+    return jsonify({}), 200
