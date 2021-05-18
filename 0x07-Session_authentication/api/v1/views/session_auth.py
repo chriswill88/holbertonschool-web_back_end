@@ -18,9 +18,10 @@ def get_email_and_pass():
     if password is None or password == '':
         return jsonify({"error": "password missing"}), 400
 
-    user = User.search({'email': email})[0]
+    user = User.search({'email': email})
     if len(user) < 1:
         return jsonify({"error": "no user found for this email"}), 404
+    user = user[0]
     if user.is_valid_password(password) is False:
         return jsonify({"error": "wrong password"}), 401
     from api.v1.app import auth
