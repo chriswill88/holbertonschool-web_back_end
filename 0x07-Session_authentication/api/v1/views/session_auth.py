@@ -39,4 +39,4 @@ def delete():
     from api.v1.app import auth
     if auth.destroy_session(request) is False:
         abort(404)
-    return jsonify({}), 200
+    return jsonify(), 200
