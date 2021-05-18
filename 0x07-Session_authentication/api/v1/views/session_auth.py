@@ -17,8 +17,9 @@ def get_email_and_pass():
         return jsonify({"error": "email missing"}), 400
     if password is None or password == '':
         return jsonify({"error": "password missing"}), 400
+
     user = User.search({'email': email})[0]
-    if user is None:
+    if len(user) < 1:
         return jsonify({"error": "no user found for this email"}), 404
     if user.is_valid_password(password) is False:
         return jsonify({"error": "wrong password"}), 401
