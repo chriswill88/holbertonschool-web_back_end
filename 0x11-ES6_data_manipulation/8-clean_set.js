@@ -1,18 +1,19 @@
 export default function cleanSet(set, startString) {
-  let str = '';
+  const arr = [...set];
 
   const clean = new Set(
-    [...set].filter(
+    arr.filter(
       (str) => str.substring(0, startString.length) === startString,
     ),
   );
 
-  if ([...set].every((x) => clean.has(x))) {
-    return str;
+  if (arr.every((x) => clean.has(x))) {
+    return undefined;
   }
 
   const result = [...clean].map((x) => x.substring(startString.length));
 
+  let str = '';
   for (const i of result) {
     str = str.concat(`${i}-`);
   }
