@@ -1,4 +1,6 @@
 export default function cleanSet(set, startString) {
+  let str = '';
+
   const clean = new Set(
     [...set].filter(
       (str) => str.substring(0, startString.length) === startString,
@@ -6,12 +8,11 @@ export default function cleanSet(set, startString) {
   );
 
   if ([...set].every((x) => clean.has(x))) {
-    return '';
+    return str;
   }
 
   const result = [...clean].map((x) => x.substring(startString.length));
 
-  let str = '';
   for (const i of result) {
     str = str.concat(`${i}-`);
   }
