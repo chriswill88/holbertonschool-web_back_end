@@ -6,7 +6,7 @@ export default function cleanSet(set, startString) {
   );
 
   if ([...set].every((x) => clean.has(x))) {
-    return;
+    return '';
   }
 
   const result = [...clean].map((x) => x.substring(startString.length));
