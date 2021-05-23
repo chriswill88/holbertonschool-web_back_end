@@ -16,14 +16,12 @@ function countStudents(path) {
       students[row.field] = [];
     }
     students[row.field].push(row.firstname);
-    // console.log('stud = ', students);
-  })
-    .on('end', () => {
-      console.log(`Number of students: ${len}`);
-      for (const i of Object.keys(students)) {
-        console.log(`Number of students in ${i}: ${students[i].length}. List: ${students[i].join(', ')}`);
-      }
-    });
+  }).on('end', () => {
+    console.log(`Number of students: ${len}`);
+    for (const i of Object.keys(students)) {
+      console.log(`Number of students in ${i}: ${students[i].length}. List: ${students[i].join(', ')}`);
+    }
+  });
 }
 
 module.exports = countStudents;
