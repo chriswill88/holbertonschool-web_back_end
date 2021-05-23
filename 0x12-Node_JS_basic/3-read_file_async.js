@@ -1,7 +1,7 @@
 const csv = require('csv-parser');
 const fs = require('fs');
 
-function countStudents(path) {
+async function countStudents(path) {
   const students = {};
   let len = 0;
 
