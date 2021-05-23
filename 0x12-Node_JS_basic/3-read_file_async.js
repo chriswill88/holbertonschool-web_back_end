@@ -1,11 +1,11 @@
 const csv = require('csv-parser');
 const fs = require('fs');
 
-async function countStudents(path) {
+function countStudents(path) {
   const students = {};
   let len = 0;
 
-  const fileContent = await fs.createReadStream(path)
+  const fileContent = fs.createReadStream(path)
     .on('error', () => {
       throw new Error('Cannot load the database');
     });
