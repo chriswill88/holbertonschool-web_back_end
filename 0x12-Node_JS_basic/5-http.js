@@ -40,7 +40,6 @@ const app = http.createServer(async (req, res) => {
       break;
 
     default:
-      res.writeHead(200);
       res.end('Hello Holberton School!');
       break;
   }
