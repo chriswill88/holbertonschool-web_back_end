@@ -1,44 +1,30 @@
-const csv = require('csv-parser');
 const fs = require('fs');
 
-// const students = {};
-// let len = 0;
-
-// function countStudents(path) {
-//   const fileContent = fs.createReadStream(path)
-//     .on('error', () => {
-//       throw new Error('Cannot load the database');
-//     });
-//   fileContent.pipe(csv()).on('data', (row) => {
-//     len += 1;
-
-//     if (!(row.field in students)) {
-//       students[row.field] = [];
-//     }
-//     students[row.field].push(row.firstname);
-//     // console.log('stud = ', students);
-//   })
-//     .on('end', () => {
-//       console.log(`Number of students: ${len}`);
-//       for (const i of Object.keys(students)) {
-//         console.log(`Number of students in ${i}: ${students[i].length}. List: ${students[i].join(', ')}`);
-//       }
-//     });
-// }
-
 function countStudents(path) {
-  let data = fs.readFileSync(path, { encoding: 'utf8', flag: 'r' },
+  const student = {};
+  let len = 0;
+
+  const data = fs.readFileSync(path, { encoding: 'utf8', flag: 'r' },
     (err) => {
       if (err) {
         throw new Error('Cannot load the database');
       }
     });
 
-  data = csv(data, { column: true }, (err, records) => {
-    console.log(records);
-  });
+  const datalines = data.split('\n');
+  const students = datalines.slice(1).map((line) => line.split(',')).filter((line) => line.length > 0 && line[0] !== '');
 
-  console.log(data.options);
+  for (const line of students) {
+    len += 1;
+    if (!(line[3] in student)) {
+      student[line[3]] = [];
+    }
+    student[line[3]].push(line[0]);
+  }
+
+  console.log(`Number of students: ${len}`);
+  for (const i of Object.keys(student)) {
+    console.log(`Number of students in ${i}: ${student[i].length}. List: ${student[i].join(', ')}`);
+  }
 }
-
 module.exports = countStudents;
