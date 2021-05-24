@@ -22,7 +22,7 @@ function countStudents(path) {
       student[line[3]].push(line[0]);
     }
 
-    str += `Number of students: ${len}\n`;
+    str = `Number of students: ${len}\n`;
     for (const i of Object.keys(student)) {
       str += `Number of students in ${i}: ${student[i].length}. List: ${student[i].join(', ')}\n`;
     }
