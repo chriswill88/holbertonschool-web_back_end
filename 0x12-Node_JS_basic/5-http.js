@@ -31,9 +31,8 @@ function countStudents(path) {
   });
 }
 
-let students;
-
 const app = http.createServer(async (req, res) => {
+  let students;
   res.setHeader('Content-Type', 'text/html');
   switch (req.url) {
     case '/students':
