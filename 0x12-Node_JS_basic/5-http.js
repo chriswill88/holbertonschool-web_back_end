@@ -33,7 +33,7 @@ function countStudents(path) {
 
 const app = http.createServer(async (req, res) => {
   let students;
-  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Content-Type', 'text/plain');
   switch (req.url) {
     case '/students':
       res.writeHead(200);
