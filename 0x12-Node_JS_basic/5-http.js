@@ -3,9 +3,10 @@ const fs = require('fs');
 const util = require('util');
 
 const readFile = util.promisify(fs.readFile);
-let str = 'This is the list of our students\n';
 
 function countStudents(path) {
+  let str = 'This is the list of our students\n';
+
   return readFile(path, 'utf8').then((data) => {
     const student = {};
     let len = 0;
