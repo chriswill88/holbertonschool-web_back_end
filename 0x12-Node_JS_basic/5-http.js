@@ -42,9 +42,13 @@ const app = http.createServer(async (req, res) => {
       res.end(students);
       break;
 
-    default:
+    case '/':
       res.writeHead(200);
       res.end('Hello Holberton School!');
+      break;
+
+    default:
+      res.end();
       break;
   }
 }).listen(1245);
