@@ -1,4 +1,4 @@
-const app = require('http');
+const http = require('http');
 
 const host = 'localhost';
 const port = 1245;
@@ -8,7 +8,7 @@ const requestListener = (req, res) => {
   res.end('Hello Holberton School!');
 };
 
-const server = app.createServer(requestListener);
-server.listen(port, host);
+const app = http.createServer(requestListener);
+app.listen(port, host);
 
-export default app;
+exports.app = app;
