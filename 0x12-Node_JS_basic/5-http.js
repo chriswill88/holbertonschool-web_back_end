@@ -5,7 +5,7 @@ const util = require('util');
 const readFile = util.promisify(fs.readFile);
 
 function countStudents(path) {
-  let str = 'This is the list of our students\n';
+  let str;
 
   return readFile(path, 'utf8').then((data) => {
     const student = {};
@@ -27,9 +27,7 @@ function countStudents(path) {
       str += `Number of students in ${i}: ${student[i].length}. List: ${student[i].join(', ')}\n`;
     }
     return str.slice(0, -1);
-  }).catch(() => {
-    throw new Error('Cannot load the database');
-  });
+  }).catch(() => 'Error: Cannot load the database');
 }
 
 const app = http.createServer(async (req, res) => {
@@ -37,9 +35,8 @@ const app = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   switch (req.url) {
     case '/students':
-      res.writeHead(200);
       students = await countStudents(process.argv[2]);
-      res.end(students);
+      res.end(`This is the list of our students\n${students}`);
       break;
 
     case '/':
