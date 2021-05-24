@@ -39,13 +39,9 @@ const app = http.createServer(async (req, res) => {
       res.end(`This is the list of our students\n${students}`);
       break;
 
-    case '/':
+    default:
       res.writeHead(200);
       res.end('Hello Holberton School!');
-      break;
-
-    default:
-      res.end();
       break;
   }
 }).listen(1245);
