@@ -3,13 +3,13 @@ const fs = require('fs');
 function countStudents(path) {
   const student = {};
   let len = 0;
+  let data;
 
-  const data = fs.readFileSync(path, { encoding: 'utf8', flag: 'r' },
-    (err) => {
-      if (err) {
-        throw new Error('Cannot load the database');
-      }
-    });
+  try {
+    data = fs.readFileSync(path, { encoding: 'utf8', flag: 'r' });
+  } catch (err) {
+    throw new Error('Cannot load the database');
+  }
 
   const datalines = data.split('\n');
   const students = datalines.slice(1).map((line) => line.split(',')).filter((line) => line.length > 0 && line[0] !== '');
