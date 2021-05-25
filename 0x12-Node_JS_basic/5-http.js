@@ -27,7 +27,7 @@ function countStudents(path) {
       str += `Number of students in ${i}: ${student[i].length}. List: ${student[i].join(', ')}\n`;
     }
     return str.slice(0, -1);
-  }).catch(() => 'Error: Cannot load the database');
+  }).catch(() => 'Cannot load the database');
 }
 
 const app = http.createServer(async (req, res) => {
