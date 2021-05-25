@@ -1,4 +1,5 @@
-const http = require('http');
+const express = require('express');
+
 const fs = require('fs');
 const util = require('util');
 
@@ -30,21 +31,17 @@ function countStudents(path) {
   }).catch(() => 'Error: Cannot load the database');
 }
 
-const app = http.createServer(async (req, res) => {
-  let students;
-  res.writeHead(200, 'Content-Type', 'text/plain');
-  switch (req.url) {
-    case '/students':
-      students = await countStudents(process.argv[2]);
-      res.write(`This is the list of our students\n${students}`);
-      res.end();
-      break;
+const app = express();
+const port = 1245;
 
-    default:
-      res.write('Hello Holberton School!');
-      res.end();
-      break;
-  }
-}).listen(1245);
+app.get('/', (req, res) => {
+  res.send('Hello Holberton School!');
+});
+
+app.get('/students', async(req, res) => {
+  res.send(await countStudents(process.argv[2]));
+});
+
+app.listen(port);
 
 module.exports = app;
