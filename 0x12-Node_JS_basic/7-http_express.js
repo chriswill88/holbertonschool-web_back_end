@@ -28,7 +28,7 @@ function countStudents(path) {
       str += `Number of students in ${i}: ${student[i].length}. List: ${student[i].join(', ')}\n`;
     }
     return str.slice(0, -1);
-  }).catch(() => 'Error: Cannot load the database');
+  }).catch(() => 'Cannot load the database');
 }
 
 const app = express();
@@ -38,8 +38,8 @@ app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
 
-app.get('/students', async(req, res) => {
-  res.send(await countStudents(process.argv[2]));
+app.get('/students', async (req, res) => {
+  res.send(`This is the list of our students\n${await countStudents(process.argv[2])}`);
 });
 
 app.listen(port);
