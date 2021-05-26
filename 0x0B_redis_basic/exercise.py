@@ -16,17 +16,18 @@ def replay(method):
     history_out = self._redis.lrange(key + ':outputs', 0, -1)
 
     print(str(history_in[0]))
-
     print('{} was called {} times:'.format(key, num.decode('ascii')))
     for i in list(zip(history_in, history_out)):
-        print('{}(*{}) -> {}'.format(key, i[0].decode('ascii'), i[1].decode('ascii')))
+        print('{}(*{}) -> {}'.format(
+            key, i[0].decode('ascii'), i[1].decode('ascii')))
 
 
 def call_history(method: Callable) -> Callable:
     """wrapper"""
     @wraps(method)
     def wrapper(self, *args):
-        """This function creates a history of input and output for Cache.store"""
+        """This function creates a history
+        of input and output for Cache.store"""
         key = method.__qualname__
         output = method(self, *args)
         self._redis.rpush('{}:inputs'.format(key), str(args))
@@ -51,7 +52,7 @@ class Cache:
     def __init__(self):
         self._redis = redis.Redis()
         self._redis.flushdb()
-    
+
     @call_history
     @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
@@ -63,7 +64,7 @@ class Cache:
     def get(self, key: str, fn=None):
         """this function converts the """
         value = self._redis.get(key)
-        if fn == None:
+        if fn is None:
             return value
         return fn(value)
 
