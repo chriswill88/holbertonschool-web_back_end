@@ -16,3 +16,13 @@ class Cache:
         key = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
+
+    def get_str(self):
+        pass
+
+    def get_ini(self):
+        pass
+
+    def get(self, key: str, fn=None):
+        value = self._redis.get(key)
+        return fn(value)
