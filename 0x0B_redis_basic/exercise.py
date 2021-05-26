@@ -15,8 +15,7 @@ def replay(method):
     history_in = self._redis.lrange(key + ':inputs', 0, -1)
     history_out = self._redis.lrange(key + ':outputs', 0, -1)
 
-    print(str(history_in[0]))
-    print('{} was called {} times:'.format(key, num.decode('ascii')))
+    print('{} was called {} times:'.format(key, num.decode()))
     for i in list(zip(history_in, history_out)):
         print('{}(*{}) -> {}'.format(
             key, i[0].decode('ascii'), i[1].decode('ascii')))
