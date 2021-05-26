@@ -2,12 +2,11 @@
 """This is the module for exercize.py"""
 import redis
 import uuid
-from typing import Union
-from collections.abc import Callable
+from typing import Union, Callable
 from functools import wraps
 
 
-def count_calls(method) -> Callable:
+def count_calls(method: Callable) -> Callable:
     """wrapper"""
     @wraps(method)
     def wrapper(self, *args):
