@@ -17,12 +17,17 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get_str(self):
-        pass
-
-    def get_ini(self):
-        pass
-
     def get(self, key: str, fn=None):
+        """this function converts the """
         value = self._redis.get(key)
+        if fn == None:
+            return value
         return fn(value)
+
+    def get_str(self, key):
+        """returns string"""
+        return self.get(key, str)
+
+    def get_int(self, key):
+        """returns int"""
+        return self.get(key, int)
