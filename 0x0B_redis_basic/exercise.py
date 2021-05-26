@@ -6,6 +6,22 @@ from typing import Union, Callable
 from functools import wraps
 
 
+def replay(method):
+    """display the history of calls of a particular function"""
+    key = method.__qualname__
+    self = method.__self__
+    num = self._redis.get(key)
+
+    history_in = self._redis.lrange(key + ':inputs', 0, -1)
+    history_out = self._redis.lrange(key + ':outputs', 0, -1)
+
+    print(str(history_in[0]))
+
+    print('{} was called {} times:'.format(key, num.decode('ascii')))
+    for i in list(zip(history_in, history_out)):
+        print('{}(*{}) -> {}'.format(key, i[0].decode('ascii'), i[1].decode('ascii')))
+
+
 def call_history(method: Callable) -> Callable:
     """wrapper"""
     @wraps(method)
@@ -28,6 +44,7 @@ def count_calls(method: Callable) -> Callable:
         self._redis.incr(key, 1)
         return method(self, *args)
     return wrapper
+
 
 class Cache:
     """Cache Class for redis"""
