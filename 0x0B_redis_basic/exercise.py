@@ -8,8 +8,10 @@ from functools import wraps
 
 
 def count_calls(method) -> Callable:
+    """wrapper"""
     @wraps(method)
     def wrapper(self, *args):
+        """this function counts the number of times store is called"""
         key = method.__qualname__
         self._redis.incr(key, 1)
         return method(self, *args)
