@@ -12,9 +12,11 @@ def call_history(method: Callable) -> Callable:
     def wrapper(self, *args):
         """This function creates a history of input and output for Cache.store"""
         key = method.__qualname__
-        self._redis.rpush(key + ':inputs', str(args))
-        self._redis.rpush(key + ':outputs', str(method(self, args)))
-        return method(self, args)
+        output = method(self, *args)
+        self._redis.rpush('{}:inputs'.format(key), str(args))
+        self._redis.rpush('{}:outputs'.format(key), output)
+        return output
+    return wrapper
 
 
 def count_calls(method: Callable) -> Callable:
@@ -23,7 +25,6 @@ def count_calls(method: Callable) -> Callable:
     def wrapper(self, *args):
         """this function counts the number of times Cache.store is called"""
         key = method.__qualname__
-        print(key)
         self._redis.incr(key, 1)
         return method(self, *args)
     return wrapper
@@ -33,15 +34,15 @@ class Cache:
     def __init__(self):
         self._redis = redis.Redis()
         self._redis.flushdb()
-
+    
+    @call_history
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """this function stores a variable in redis"""
         key = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
 
-    @count_calls
-    @call_history
     def get(self, key: str, fn=None):
         """this function converts the """
         value = self._redis.get(key)
