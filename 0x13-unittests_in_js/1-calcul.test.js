@@ -32,6 +32,9 @@ describe('calculateNumber sum', function() {
   it('...', function() {
     assert.equal(calculateNumber('SUM', 1.4, 4.5), 6);
   });
+  it('...', function() {
+    assert.equal(calculateNumber('SUM', -1.4, 4.5), 4);
+  });
 });
 
 describe('calculateNumber div', function() {
@@ -43,6 +46,9 @@ describe('calculateNumber div', function() {
   });
   it('...', function() {
     assert.equal(calculateNumber('DIVIDE', 1.4, 4.5), 0.2);
+  });
+  it('...', function() {
+    assert.equal(calculateNumber('DIVIDE', -1.4, -1), 1);
   });
 });
 
