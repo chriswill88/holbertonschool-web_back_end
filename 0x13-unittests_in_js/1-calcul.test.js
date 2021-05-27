@@ -66,7 +66,7 @@ describe('calculateNumber sub', function() {
     assert.equal(calculateNumber('SUBTRACT', 1.4, 0), 1);
   });
   it('...', function() {
-    assert.equal(calculateNumber('SUBTRACT', 0, 4.5), -4);
+    assert.equal(calculateNumber('SUBTRACT', 0, 4.5), -5);
   });
 });
 
