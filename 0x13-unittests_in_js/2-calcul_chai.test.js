@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const calculateNumber = require('./1-calcul');
 
-describe('calculateNumber sum', function() {
+describe('type=SUM', function() {
   it('...', function() {
     expect(calculateNumber('SUM', 1, 3)).to.equal(4);
   });
