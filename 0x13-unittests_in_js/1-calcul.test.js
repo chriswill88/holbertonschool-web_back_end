@@ -62,6 +62,12 @@ describe('calculateNumber sub', function() {
   it('...', function() {
     assert.equal(calculateNumber('SUBTRACT', 1.4, 4.5), -4);
   });
+  it('...', function() {
+    assert.equal(calculateNumber('SUBTRACT', 1.4, 0), 1);
+  });
+  it('...', function() {
+    assert.equal(calculateNumber('SUBTRACT', 0, 4.5), -4);
+  });
 });
 
 describe('calculateNumber error', function() {
