@@ -5,12 +5,14 @@ function calculateNumber(type, a, b) {
     'DIVIDE': (a, b) => a / b,
   }
 
+  a = Math.round(a)
+  b = Math.round(b)
   if (type === 'DIVIDE') {
     if (b === 0) {
       return 'Error';
     }
   }
-  return types[type](Math.round(a), Math.round(b));
+  return types[type](a, b);
 }
 
 module.exports = calculateNumber;

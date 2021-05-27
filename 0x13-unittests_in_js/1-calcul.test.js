@@ -80,4 +80,7 @@ describe('calculateNumber error', function() {
   it('...', function() {
     assert.equal(calculateNumber('DIVIDE', 1.4, 0), 'Error');
   });
+  it('...', function() {
+    assert.equal(calculateNumber('DIVIDE', 1.4, 0.2), 'Error');
+  });
 });
