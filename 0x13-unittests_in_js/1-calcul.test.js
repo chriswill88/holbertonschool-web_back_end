@@ -42,7 +42,7 @@ describe('calculateNumber div', function() {
     assert.equal(calculateNumber('DIVIDE', 0, 1), 0);
   });
   it('...', function() {
-      assert.equal(calculateNumber('DIVIDE', 1.4, 4.5)), 0.2);
+    assert.equal(calculateNumber('DIVIDE', 1.4, 4.5), 0.2);
   });
 });
 
