@@ -1,4 +1,3 @@
-const expect = require('chai').expect;
 const assert = require('chai').assert;
 
 const sendPaymentRequestToApi = require('./4-payment');
