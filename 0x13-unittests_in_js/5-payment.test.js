@@ -1,5 +1,4 @@
 const assert = require('chai').assert;
-
 const sendPaymentRequestToApi = require('./4-payment');
 const sinon = require('sinon');
 
