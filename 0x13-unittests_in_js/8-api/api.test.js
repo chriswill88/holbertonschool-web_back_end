@@ -14,6 +14,7 @@ describe('index page', () => {
 
   it('status code', () => {
     request('http://localhost:7865/', function(err, res, body) {
+      console.log(res);
       console.log(res.statusCode);
       expect(console.log.calledWith(200)).to.be.true;
     });
