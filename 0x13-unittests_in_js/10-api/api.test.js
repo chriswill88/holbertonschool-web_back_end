@@ -57,16 +57,16 @@ describe('index page', () => {
     });
   });
 
-  it('get', () => {
-    request({
-      headers: { 'content-type': 'application/json' },
-      url: 'http://localhost:7865/login',
-      body: '{ "userName": "Betty" }'
-    }, function(err, res, body) {
-      console.log(body);
-      expect(console.log.calledWith('Welcome Betty')).to.be.true;
-    });
-  });
+  // it('get', () => {
+  //   request({
+  //     headers: { 'content-type': 'application/json' },
+  //     url: 'http://localhost:7865/login',
+  //     body: '{ "userName": "Betty" }'
+  //   }, function(err, res, body) {
+  //     console.log(body);
+  //     expect(console.log.calledWith('Welcome Betty')).to.be.true;
+  //   });
+  // });
   it('get', () => {
     request('http://localhost:7865/available_payments', function(err, res, body) {
       console.log(body);
