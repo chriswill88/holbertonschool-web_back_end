@@ -3,12 +3,6 @@ const request = require('request');
 const { spy } = require('sinon');
 
 
-const options = {
-  hostname: '127.0.0.0',
-  port: 7865,
-  method: 'GET'
-}
-
 describe('index page', () => {
   spy(console, 'log');
 
@@ -30,6 +24,12 @@ describe('index page', () => {
     request('http://localhost:7865/', function(err, res, body) {
       console.log(body);
       expect(console.log.calledWith('Welcome to the payment system')).to.be.true;
+    });
+  });
+  it('body returns', () => {
+    request('http://localhost:7865/cart/12', function(err, res, body) {
+      console.log(body);
+      expect(console.log.calledWith('Payment methods for cart 12')).to.be.true;
     });
   });
   it('get', () => {
