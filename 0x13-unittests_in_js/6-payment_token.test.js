@@ -6,7 +6,7 @@ const sinon = require('sinon');
 describe('getPaymentTokenFromAPI', function() {
   it('getPaymentTokenFromAPI', function(done) {
     spy = sinon.spy(getPaymentTokenFromAPI);
-    getPaymentTokenFromAPI(true);
+    console.log(getPaymentTokenFromAPI(true));
     assert(spy.returned);
     done();
   });
