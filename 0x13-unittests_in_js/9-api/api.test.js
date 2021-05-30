@@ -26,4 +26,16 @@ describe('index page', () => {
       expect(console.log.calledWith(404)).to.be.true;
     });
   });
+  it('body returns', () => {
+    request('http://localhost:7865/', function(err, res, body) {
+      console.log(body);
+      expect(console.log.calledWith('Welcome to the payment system')).to.be.true;
+    });
+  });
+  it('get', () => {
+    request('http://localhost:7865/', function(err, res, body) {
+      console.log(res.request.method);
+      expect(console.log.calledWith('GET')).to.be.true;
+    });
+  });
 });
