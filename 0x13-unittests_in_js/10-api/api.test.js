@@ -44,17 +44,6 @@ describe('index page', () => {
     });
   });
 
-
-  it('Post?', () => {
-    request({
-      url: 'http://localhost:7865/login',
-      method: 'POST',
-      body: '{ "userName": "Betty" }'
-    }, function(err, res, body) {
-      expect(res.request.method).to.equal('POST');
-    });
-  });
-
   it('get', () => {
     request('http://localhost:7865/available_payments', function(err, res, body) {
       expect(res.request.method).to.equal('GET');
@@ -78,4 +67,15 @@ describe('index page', () => {
       expect(body).to.equal('Welcome Betty');
     });
   });
+  it('Post?', () => {
+    request({
+      headers: { 'content-type': 'application/json' },
+      url: 'http://localhost:7865/login',
+      method: 'POST',
+      body: '{ "userName": "Betty" }'
+    }, function(err, res, body) {
+      expect(res.request.method).to.deep.equal('POST');
+    });
+  });
+
 });
