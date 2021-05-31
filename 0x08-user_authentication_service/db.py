@@ -33,11 +33,7 @@ class DB:
 
     def add_user(self, email: str, hashed_password: str) -> User:
         """add_user"""
-        obj = User()
-        obj.email = email
-        obj.hashed_password = hashed_password
-
-        print(obj.id)
+        obj = User(email=email, hashed_password=hashed_password)
 
         self._session.add(obj)
         self._session.commit()
