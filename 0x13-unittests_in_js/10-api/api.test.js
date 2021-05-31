@@ -1,4 +1,4 @@
-const { expect, assert } = require('chai');
+const { expect, assert, should } = require('chai');
 const request = require('request');
 const { spy, stub } = require('sinon');
 
@@ -27,7 +27,7 @@ describe('index page', () => {
   });
   it('body returns 1', () => {
     request('http://localhost:7865/', function(err, res, body) {
-      expect(body).to.equal('Welcome to the payment system');
+      expect(body).should.eql('Welcome to the payment system');
     });
   });
 
