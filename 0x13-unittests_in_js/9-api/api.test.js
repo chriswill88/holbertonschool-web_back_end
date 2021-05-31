@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const request = require('request');
-const { spy } = require('sinon');
+const { spy, stub } = require('sinon');
 
 
 describe('index page', () => {
