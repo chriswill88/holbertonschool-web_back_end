@@ -36,6 +36,7 @@ class DB:
         obj = User()
         obj.email = email
         obj.hashed_password = hashed_password
+
         self._session.add(obj)
         self._session.commit()
         return obj
