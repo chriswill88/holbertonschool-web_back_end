@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """This module contains task 1"""
 from flask import Flask, render_template, request
-from flask_babel import Babel, gettext
+from flask_babel import Babel
 
 
 class Config():
@@ -25,6 +25,4 @@ def get_locale():
 @app.route('/')
 def hello_world():
     """renders a template"""
-    return render_template(
-        '3-index.html', home_title=gettext(u'home_title'),
-        home_header=gettext(u'home_header'))
+    return render_template('3-index.html')
