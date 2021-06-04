@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""This module contains task 3"""
+"""This module contains task 1"""
 from flask import Flask, render_template, request
 from flask_babel import Babel, gettext
 
