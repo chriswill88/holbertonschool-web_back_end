@@ -1,4 +1,4 @@
-3#!/usr/bin/env python3
+#!/usr/bin/env python3
 """This module contains task 3"""
 from flask import Flask, render_template, request
 from flask_babel import Babel
