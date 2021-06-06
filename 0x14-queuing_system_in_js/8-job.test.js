@@ -32,8 +32,19 @@ it('checks queue type and job object', function() {
     phoneNumber: '4153518780',
     message: 'This is the code 1234 to verify your account'
   });
+});
 
-  //   expect(queue.testMode.jobs.length).to.equal(2);
-  //   expect(queue.testMode.jobs[0].type).to.equal('myJob');
-  //   expect(queue.testMode.jobs[0].data).to.eql({ foo: 'bar' });
+it('checks queue for 2 objects', function() {
+  const list = [{
+      phoneNumber: '4153518780',
+      message: 'This is the code 1234 to verify your account'
+    },
+    {
+      phoneNumber: '4153518780',
+      message: 'This is the code 1234 to verify your account'
+    }
+  ];
+
+  createPushNotificationsJobs(list, queue);
+  expect(queue.testMode.jobs.length).to.equal(2);
 });
