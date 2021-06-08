@@ -1,6 +1,7 @@
 const redis = require("redis");
 const client = redis.createClient();
-const { promisify } = require('util');
+import promisify from 'util';
+
 
 const getAsync = promisify(client.get).bind(client);
 

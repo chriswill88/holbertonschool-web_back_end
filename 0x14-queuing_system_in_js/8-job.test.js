@@ -1,9 +1,8 @@
 import createPushNotificationsJobs from './8-job.js';
 import kue from 'kue';
-import { expect } from 'chai';
-let queue = kue.createQueue();
+import expect from 'chai';
 
-expect
+let queue = kue.createQueue();
 
 
 before(function() {
@@ -21,11 +20,11 @@ after(function() {
 
 
 it('checks queue type and job object', function() {
-  const list = [{
+  const mockList = [{
     phoneNumber: '4153518780',
     message: 'This is the code 1234 to verify your account'
   }];
-  createPushNotificationsJobs(list, queue);
+  createPushNotificationsJobs(mockList, queue);
   expect(queue.testMode.jobs[0].data.phoneNumber).to.equal('4153518780');
   expect(queue.testMode.jobs[0].type).to.equal('push_notification_code_3');
   expect(queue.testMode.jobs[0].data).to.eql({
@@ -35,7 +34,7 @@ it('checks queue type and job object', function() {
 });
 
 it('checks queue for 2 objects', function() {
-  const list = [{
+  const mockList = [{
       phoneNumber: '4153518780',
       message: 'This is the code 1234 to verify your account'
     },
@@ -45,6 +44,6 @@ it('checks queue for 2 objects', function() {
     }
   ];
 
-  createPushNotificationsJobs(list, queue);
+  createPushNotificationsJobs(mockList, queue);
   expect(queue.testMode.jobs.length).to.equal(2);
 });

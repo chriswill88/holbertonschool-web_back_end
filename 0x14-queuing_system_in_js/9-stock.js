@@ -60,7 +60,7 @@ app.get('/list_products/:itemId', function(req, res) {
   const id = Number(req.params.itemId)
   const value = getItemById(id)[0]
 
-  if (value === undefined) {
+  if (!value) {
     res.send(JSON.stringify({ "status": "Product not found" }))
   }
   res.send(JSON.stringify(value))
@@ -70,7 +70,7 @@ app.get('/reserve_product/:itemId', async function(req, res) {
   const id = Number(req.params.itemId)
   const value = getItemById(id)[0]
 
-  if (value === undefined) {
+  if (!value) {
     res.send(JSON.stringify({ "status": "Product not found" }))
   }
 
