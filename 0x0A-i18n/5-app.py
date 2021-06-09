@@ -24,14 +24,18 @@ class Config():
 
 app.config.from_object(Config)
 
+
 def get_user():
+    """gets user from dict"""
     user_id = request.args.get('login_as')
     if user_id is None:
         return None
     return users.get(int(user_id))
 
+
 @app.before_request
 def before_request():
+    """finds user"""
     user = get_user()
     print("user", user)
     g.user = user
