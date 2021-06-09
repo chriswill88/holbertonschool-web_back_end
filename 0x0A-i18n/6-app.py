@@ -44,12 +44,16 @@ def before_request():
 @babel.localeselector
 def get_locale():
     """lang selector based on location"""
-    lang = request.args.get('locale')
     if g.user is not None:
         lang = g.user.get('locale')
+    if request.args.get('locale'):
+        lang = request.args.get('locale')
+
     if lang is not None:
-        ele = 0 if lang == 'en' else 1
-        return Config.LANGUAGES[ele]
+        if lang == 'en':
+            return Config.LANGUAGES[0]
+        if lang == 'fr':
+            return Config.LANGUAGES[1]
     return request.accept_languages.best_match(Config.LANGUAGES)
 
 
