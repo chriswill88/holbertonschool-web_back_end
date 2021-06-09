@@ -26,7 +26,7 @@ app.config.from_object(Config)
 
 
 def get_user():
-    """gets user from dict"""
+    """get_user - gets user from dict"""
     user_id = request.args.get('login_as')
     if user_id is None:
         return None
@@ -35,7 +35,7 @@ def get_user():
 
 @app.before_request
 def before_request():
-    """finds user"""
+    """before request - finds user for use"""
     user = get_user()
     print("user", user)
     g.user = user
