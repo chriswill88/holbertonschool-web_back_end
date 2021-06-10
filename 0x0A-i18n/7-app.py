@@ -38,7 +38,7 @@ def get_timezone() -> str:
         return pytz.timezone(timezone)
     except pytz.exceptions.UnknownTimeZoneError:
         return pytz.timezone(Config.BABEL_DEFAULT_TIMEZONE)
-    
+
 
 def get_user():
     """get_user - gets user from dict"""
