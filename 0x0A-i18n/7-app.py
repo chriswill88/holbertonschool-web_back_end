@@ -27,14 +27,13 @@ app.config.from_object(Config)
 
 
 @babel.timezoneselector
-def get_timezone():
+def get_timezone() -> str:
     """timezone retriever"""
     timezone = None
     if g.user is not None:
         timezone = g.user.get('timezone')
     if request.args.get('timezone'):
         timezone = request.args.get('timezone')
-    print(timezone)
     try:
         return pytz.timezone(timezone)
     except pytz.exceptions.UnknownTimeZoneError:
